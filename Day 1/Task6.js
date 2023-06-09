@@ -1,6 +1,6 @@
 function func(name,callBackFunction){
     console.log("Hello...."+name);
-    callBackFunction;
+    callBackFunction();
 }
 
 function callBackFunction(){
