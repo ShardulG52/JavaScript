@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Task4</h2>
+
+<p id="1"></p>
+<p id="2"></p>
+<p id="3"></p>
+<p id="4"></p>
+
+<script>
+
+
+
+const cDetails = function(){
+    console.log(this.carD);
+}
+function car1(regNum,brand) {
+  this.regNum = regNum;
+  this.brand = brand;
+}
+
+const own1 = {
+    ownerName : "Shardul",
+    year : 2023
+}
+
+const owner1 ={
+    ownerDetails1 :function(c){
+        return c+" "+this.ownerName + " " + this.year;
+    }
+
+}
+
+const owner2 ={
+    ownerDetails2 :function(ownerName,year){
+        return this.regNum+ " " + this.brand+ " "+ownerName+" "+year;
+    }
+
+}
+car1.prototype.carDetails = function(){
+
+    return this.regNum + " " + this.brand;
+};
+
+const car = {
+  regNum : "UP 13 AP 0204",
+  brand : "BMW",
+  ownerName: "Gaurav",
+  year: "2020",
+  carD : function(){
+    document.getElementById("4").innerHTML= this.regNum + " "+ this.brand + " "+this.ownerName+" "+this.year;
+  }
+}
+
+const details = new car1("UP 13 AP 0213", "AUDI");
+
+const carD = car.carD.bind(car);
+
+document.getElementById("1").innerHTML = details.carDetails();
+
+document.getElementById("2").innerHTML = owner1.ownerDetails1.call(own1,details.carDetails());
+
+document.getElementById("3").innerHTML = owner2.ownerDetails2.apply(car,["SURAJ","2022"]);
+
+
+carD();
+
+</script>
+
+</body>
+</html>
+
+
