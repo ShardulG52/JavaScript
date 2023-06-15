@@ -7,7 +7,7 @@ const addEmployeeWithPermanentFalse=(id:number,name:string,isPermanent:boolean=f
 const updateEmployee=(id:number,isPermanent?:boolean)=>{
     const employee = employees.find(employee=>employee[0]===id)
     if (employee) {
-        if(isPermanent){
+        if(isPermanent!==undefined){
             employee[2]=isPermanent;
             console.log(`Employee with id ${id} updated`);
         }else{
@@ -27,7 +27,7 @@ console.log(employees);
 
 
 updateEmployee(1,true)
-updateEmployee(2)
+updateEmployee(2,false)
 console.log(employees);
 
 
@@ -37,7 +37,6 @@ const typeAssertionExample=()=>{
     console.log(stringIdEmps);
 }
 typeAssertionExample();
-
 
 
 
