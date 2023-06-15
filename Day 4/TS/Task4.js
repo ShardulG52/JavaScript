@@ -41,7 +41,7 @@ function validateForm(){
         }
     }
 
-    // @ts-ignore
+    //@ts-ignore
     let eReg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(form.email.value);
     if(!eReg){
         alert("Email is not valid");
